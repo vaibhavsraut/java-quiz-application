@@ -9,19 +9,20 @@ import java.util.List;
 
 import com.velocity.quizapp.admin.Question;
 
+public class StudentServicesImpl implements StudentServices {
 
-public class StudentServicesImpl implements StudentServices{
-       
 	Connection con = null;
 	PreparedStatement ps = null;
+
 	@Override
-	public void registerStudent(String firstName,String lastName,String userName,String password,String city,String email,String mobile_number) throws SQLException {
-		
-			try {
-				
-				
+	public void registerStudent(String firstName, String lastName, String userName, String password, String city,
+			String email, String mobile_number) throws SQLException {
+
+		try {
+
 			getConnection();
-			ps = con.prepareStatement("insert into registration_details(firstName,lastName,username,password,city,email,mobileNumber) values(?,?,?,?,?,?,?)");
+			ps = con.prepareStatement(
+					"insert into registration_details(firstName,lastName,username,password,city,email,mobileNumber) values(?,?,?,?,?,?,?)");
 
 			ps.setString(1, firstName);
 			ps.setString(2, lastName);
@@ -30,22 +31,26 @@ public class StudentServicesImpl implements StudentServices{
 			ps.setString(5, city);
 			ps.setString(6, email);
 			ps.setString(7, mobile_number);
-			  
+
 			ps.executeUpdate();
 			System.out.println("Successfully Registered");
-			
-			} catch (Exception e) {
-				
-				System.out.println("Username already existed\nPlease enter different Username");
-			}finally {
-				con.close();
-				ps.close();
-			}
+
+		} catch (Exception e) {
+
+			System.out.println("Username already existed\nPlease enter different Username");
+		} finally {
+			con.close();
+			ps.close();
+		}
 	}
 
 	@Override
 	public void studentLogin(String username, String password) throws SQLException {
+<<<<<<< HEAD
 		
+=======
+
+>>>>>>> User-Login
 		try {
 
 			con = getConnection();
@@ -71,10 +76,12 @@ public class StudentServicesImpl implements StudentServices{
 
 	}
 
+
+
 	@Override
 	public void startQuiz(Student student) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -86,7 +93,7 @@ public class StudentServicesImpl implements StudentServices{
 	@Override
 	public void submitQuiz(Student student, List<String> answers) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -98,22 +105,19 @@ public class StudentServicesImpl implements StudentServices{
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+<<<<<<< HEAD
 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "Root");
 			
 			
 			
+=======
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "Root");
+
+>>>>>>> User-Login
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return con;
 	}
-
-	
-	
-
-	
-
-	
-	
 
 }
