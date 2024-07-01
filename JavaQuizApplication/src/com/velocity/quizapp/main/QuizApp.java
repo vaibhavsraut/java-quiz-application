@@ -8,7 +8,6 @@ import com.velocity.quizapp.student.StudentServicesImpl;
 
 public class QuizApp {
 
-	
 	public static void main(String[] args) throws SQLException {
 		System.out.println("Welcome to Java Quiz Application");
 		System.out.println();
@@ -25,7 +24,7 @@ public class QuizApp {
 		System.out.println("  6. Display all students score as per ascending order");
 		System.out.println("  7. Fetch student score by using id");
 		System.out.println("  8. Add question with 4 options into database");
-		
+
 		StudentServicesImpl ssi = new StudentServicesImpl();
 		System.out.println();
 		Scanner scanner = new Scanner(System.in);
@@ -33,7 +32,7 @@ public class QuizApp {
 		int num = scanner.nextInt();
 		switch (num) {
 		case 1: {
-		
+
 			System.out.println("Enter First Name : ");
 			String firstName = scanner.next();
 			System.out.println("Enter Last Name : ");
@@ -48,17 +47,27 @@ public class QuizApp {
 			String email = scanner.next();
 			System.out.println("Enter Mobile Number : ");
 			String mobileNumber = scanner.next();
-			
+
 			ssi.registerStudent(firstName, lastName, username, password, city, email, mobileNumber);
-				
-			
+
 		}
+			break;
 		case 2: {
-			
+			System.out.println("Enter the username>>");
+			String username1 = scanner.next();
+			System.out.println("Enter the password>>");
+			String password1 = scanner.next();
+			ssi.studentLogin(username1, password1);
+
+		}
+			break;
+
+		case 3: {
+
 		}
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + num);
 		}
-		
+
 	}
 }
