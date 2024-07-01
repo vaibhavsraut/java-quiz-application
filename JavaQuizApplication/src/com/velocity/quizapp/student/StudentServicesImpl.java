@@ -46,11 +46,6 @@ public class StudentServicesImpl implements StudentServices {
 
 	@Override
 	public void studentLogin(String username, String password) throws SQLException {
-<<<<<<< HEAD
-		
-=======
-
->>>>>>> User-Login
 		try {
 
 			con = getConnection();
@@ -105,15 +100,8 @@ public class StudentServicesImpl implements StudentServices {
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-<<<<<<< HEAD
 		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "Root");
 			
-			
-			
-=======
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "Root");
-
->>>>>>> User-Login
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
