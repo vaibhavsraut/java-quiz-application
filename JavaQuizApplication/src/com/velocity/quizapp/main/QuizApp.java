@@ -3,13 +3,12 @@ package com.velocity.quizapp.main;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.velocity.quizapp.student.Student;
 import com.velocity.quizapp.student.StudentServicesImpl;
 
 public class QuizApp {
 
-	public void getregister() {
-		
-	}
+	
 	public static void main(String[] args) throws SQLException {
 		System.out.println("Welcome to Java Quiz Application");
 		System.out.println();
@@ -34,6 +33,7 @@ public class QuizApp {
 		int num = scanner.nextInt();
 		switch (num) {
 		case 1: {
+		
 			System.out.println("Enter First Name : ");
 			String firstName = scanner.next();
 			System.out.println("Enter Last Name : ");

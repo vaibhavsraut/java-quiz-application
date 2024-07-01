@@ -11,7 +11,6 @@ import com.velocity.quizapp.admin.Question;
 
 public class StudentServicesImpl implements StudentServices{
        
-	
 	Connection con = null;
 	PreparedStatement ps = null;
 	@Override
@@ -31,10 +30,11 @@ public class StudentServicesImpl implements StudentServices{
 			ps.setString(6, email);
 			ps.setString(7, mobile_number);
 			  
-			 ps.executeUpdate();
+			ps.executeUpdate();
 			System.out.println("Successfully Registered");
 			
 			} catch (Exception e) {
+				
 				System.out.println("Username already existed\nPlease enter different Username");
 			}finally {
 				con.close();
