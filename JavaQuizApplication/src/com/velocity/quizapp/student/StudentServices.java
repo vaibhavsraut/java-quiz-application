@@ -9,7 +9,7 @@ import com.velocity.quizapp.database.DatabaseServices;
 
 public interface StudentServices extends DatabaseServices{
 	void registerStudent(String firstName,String lastName,String userName,String password,String city,String email,String mobile_number) throws SQLException;
-	Student login(String username, String password);
+	void studentLogin(String username, String password) throws SQLException;
 	void startQuiz(Student student);
 	List<Question> getAllQuestions();
 	void submitQuiz(Student student, List<String> answers);

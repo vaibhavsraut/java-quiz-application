@@ -3,6 +3,7 @@ package com.velocity.quizapp.student;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -43,9 +44,31 @@ public class StudentServicesImpl implements StudentServices{
 	}
 
 	@Override
-	public Student login(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
+	public void studentLogin(String username, String password) throws SQLException {
+		
+		try {
+
+			con = getConnection();
+
+			ps = con.prepareStatement("select * from registration_details where username=? and password=?");
+
+			ps.setString(1, username);
+			ps.setString(2, password);
+
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				System.out.println("Successfully Login..");
+			} else {
+				System.out.println("Incorrect Username or Password");
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			con.close();
+			ps.close();
+		}
+
 	}
 
 	@Override
@@ -74,8 +97,8 @@ public class StudentServicesImpl implements StudentServices{
 
 	public Connection getConnection() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "root");
+			Class.forName("com.mysql.jdbc.Driver");
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "Root");
 			
 			
 			
