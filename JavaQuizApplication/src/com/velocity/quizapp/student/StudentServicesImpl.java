@@ -20,7 +20,7 @@ public class StudentServicesImpl implements StudentServices {
 
 		try {
 
-			getConnection();
+			con = getConnection();
 			ps = con.prepareStatement(
 					"insert into registration_details(firstName,lastName,username,password,city,email,mobileNumber) values(?,?,?,?,?,?,?)");
 
@@ -46,6 +46,7 @@ public class StudentServicesImpl implements StudentServices {
 
 	@Override
 	public void studentLogin(String username, String password) throws SQLException {
+
 		try {
 
 			con = getConnection();
@@ -57,7 +58,7 @@ public class StudentServicesImpl implements StudentServices {
 
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				System.out.println("Successfully Login..");
+				System.out.println("Successfully Login");
 			} else {
 				System.out.println("Incorrect Username or Password");
 
@@ -70,8 +71,6 @@ public class StudentServicesImpl implements StudentServices {
 		}
 
 	}
-
-
 
 	@Override
 	public void startQuiz(Student student) {
@@ -100,8 +99,8 @@ public class StudentServicesImpl implements StudentServices {
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "Root");
-			
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/quiz", "root", "Root");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

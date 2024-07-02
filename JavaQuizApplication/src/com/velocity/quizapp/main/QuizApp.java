@@ -1,9 +1,10 @@
 package com.velocity.quizapp.main;
 
 import java.sql.SQLException;
+
 import java.util.Scanner;
 
-import com.velocity.quizapp.student.Student;
+
 import com.velocity.quizapp.student.StudentServicesImpl;
 
 public class QuizApp {
@@ -53,9 +54,9 @@ public class QuizApp {
 		}
 			break;
 		case 2: {
-			System.out.println("Enter the username>>");
+			System.out.println("Enter the username :");
 			String username = scanner.next();
-			System.out.println("Enter the password>>");
+			System.out.println("Enter the password :");
 			String password = scanner.next();
 			ssi.studentLogin(username, password);
 
@@ -65,10 +66,11 @@ public class QuizApp {
 		case 3: {
 
 		}
-		
+
 		default:
-			throw new IllegalArgumentException("Unexpected value: " + num);
+			System.out.println("Invalid Input");
 		}
 
+		scanner.close();
 	}
 }
