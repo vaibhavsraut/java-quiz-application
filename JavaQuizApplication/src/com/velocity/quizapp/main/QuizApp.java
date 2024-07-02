@@ -59,9 +59,8 @@ public class QuizApp {
 			System.out.println("Enter the password :");
 			String password = scanner.next();
 			ssi.studentLogin(username, password);
-
 		}
-			break;
+			break;			
 
 		case 3: {
 
