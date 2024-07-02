@@ -54,10 +54,10 @@ public class QuizApp {
 			break;
 		case 2: {
 			System.out.println("Enter the username>>");
-			String username1 = scanner.next();
+			String username = scanner.next();
 			System.out.println("Enter the password>>");
-			String password1 = scanner.next();
-			ssi.studentLogin(username1, password1);
+			String password = scanner.next();
+			ssi.studentLogin(username, password);
 
 		}
 			break;
@@ -65,6 +65,7 @@ public class QuizApp {
 		case 3: {
 
 		}
+		
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + num);
 		}
