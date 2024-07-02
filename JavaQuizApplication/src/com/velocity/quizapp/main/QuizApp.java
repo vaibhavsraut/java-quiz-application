@@ -65,6 +65,7 @@ public class QuizApp {
 		case 3: {
 
 		}
+		
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + num);
 		}
